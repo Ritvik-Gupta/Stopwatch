@@ -17,7 +17,7 @@ body {
 	background-size: 400% 400%;
 	background-position: 0% 50%;
 	animation-name: moving-gradient;
-	animation-duration: 15s;
+	animation-duration: 30s;
 	animation-delay: 0s;
 	animation-iteration-count: infinite;
 	animation-direction: normal;
@@ -45,7 +45,7 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	color: whitesmoke;
+	color: rgba(206, 247, 231, 0.842);
 	font-size: 50px;
 	font-weight: 700;
 }
@@ -65,19 +65,32 @@ body {
 	border: 1px solid transparent;
 	border-style: outset;
 	border-radius: 50%;
-	box-shadow: 2px 1px 2px 3px rgba(0, 0, 0, 0.25);
 	color: white;
 	cursor: pointer;
 	background-color: rgb(12, 170, 157);
-	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+		0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.icon-button.disbaled {
 }
 
 .icon-button:hover {
-	background-color: rgb(11, 199, 183);
-	color: whitesmoke;
+	background-color: #2ee59d;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+		0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12),
+		0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-5px);
 }
 
 .icon-button:active {
-	box-shadow: 2px 1px 2px 3px rgba(0, 0, 0, 0.25) inset;
-	border-style: inset;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034) inset,
+		0 6.7px 5.3px rgba(0, 0, 0, 0.048) inset, 0 12.5px 10px rgba(0, 0, 0, 0.06) inset,
+		0 22.3px 17.9px rgba(0, 0, 0, 0.072) inset,
+		0 41.8px 33.4px rgba(0, 0, 0, 0.086) inset,
+		0 100px 80px rgba(0, 0, 0, 0.12) inset;
 }
