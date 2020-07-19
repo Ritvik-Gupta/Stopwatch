@@ -48,7 +48,6 @@ resetButton.addEventListener('click', () => {
 	resetStopwatch();
 
 	playButton.removeAttribute('disabled');
-	pauseButton.removeAttribute('disabled');
 	container.classList.remove('animate-gradient');
 });
 
