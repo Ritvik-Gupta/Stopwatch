@@ -130,6 +130,7 @@ body {
 	font-size: 30px;
 	font-family: 'Trebuchet MS';
 	background: -webkit-linear-gradient(#0f0c29, #302b63, #24243e);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -156,6 +157,7 @@ body {
 	font-weight: 600;
 	font-family: monospace;
 	background: -webkit-linear-gradient(#fdc830, #f37335);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 
