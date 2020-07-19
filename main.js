@@ -14,12 +14,8 @@ playButton.addEventListener('click', () => {
 	if (intervalID !== null) return;
 	startStopwatch();
 
-	playButton.classList.add('disabled');
 	playButton.setAttribute('disabled', 'true');
-
-	pauseButton.classList.remove('disabled');
 	pauseButton.removeAttribute('disabled');
-
 	container.classList.add('animate-gradient');
 });
 
@@ -27,12 +23,8 @@ pauseButton.addEventListener('click', () => {
 	console.log('Clicked on Pause Button');
 	stopStopwatch();
 
-	playButton.classList.remove('disabled');
 	playButton.removeAttribute('disabled');
-
-	pauseButton.classList.add('disabled');
 	pauseButton.setAttribute('disabled', 'true');
-
 	container.classList.remove('animate-gradient');
 });
 
@@ -41,12 +33,8 @@ resetButton.addEventListener('click', () => {
 	stopStopwatch();
 	resetStopwatch();
 
-	playButton.classList.remove('disabled');
 	playButton.removeAttribute('disabled');
-
-	pauseButton.classList.remove('disabled');
 	pauseButton.removeAttribute('disabled');
-
 	container.classList.remove('animate-gradient');
 });
 

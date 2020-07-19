@@ -1,3 +1,19 @@
+:root {
+	--shadow-black-1: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
+	--shadow-black-2: 0 6.7px 5.3px rgba(0, 0, 0, 0.048);
+	--shadow-black-3: 0 12.5px 10px rgba(0, 0, 0, 0.06);
+	--shadow-black-4: 0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+	--shadow-black-5: 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
+	--shadow-black-6: 0 100px 80px rgba(0, 0, 0, 0.12);
+	--shadow-green: 0px 15px 20px rgba(46, 229, 157, 0.4);
+
+	--background-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	--almost-white-color: rgba(223, 241, 234, 0.842);
+	--lightblue-color: rgb(12, 170, 157);
+	--lightgreen-color: #2ee59d;
+	--grey-faded-color: rgba(189, 185, 185, 0.9);
+}
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -13,9 +29,10 @@ body {
 	width: 100%;
 	height: 100%;
 	padding: 100px;
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: var(--background-gradient);
 	background-size: 400% 400%;
 	background-position: 0% 50%;
+
 	animation-name: moving-gradient;
 	animation-duration: 15s;
 	animation-delay: 0s;
@@ -46,7 +63,7 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	color: rgba(223, 241, 234, 0.842);
+	color: var(--almost-white-color);
 	font-size: 50px;
 	font-weight: 700;
 }
@@ -67,34 +84,30 @@ body {
 	border-radius: 50%;
 	color: white;
 	transition: all 0.3s ease-in-out;
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-		0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6);
 }
 
-.icon-button:not(.disabled) {
+.icon-button:not([disabled]) {
 	cursor: pointer;
-	background-color: rgb(12, 170, 157);
+	background-color: var(--lightblue-color);
 }
 
-.icon-button:not(.disabled):hover {
-	background-color: #2ee59d;
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-		0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12),
-		0px 15px 20px rgba(46, 229, 157, 0.4);
+.icon-button:not([disabled]):hover {
+	background-color: var(--lightgreen-color);
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6),
+		var(--shadow-green);
 	transform: translateY(-5px);
 }
 
-.icon-button:not(.disabled):active {
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034) inset,
-		0 6.7px 5.3px rgba(0, 0, 0, 0.048) inset, 0 12.5px 10px rgba(0, 0, 0, 0.06) inset,
-		0 22.3px 17.9px rgba(0, 0, 0, 0.072) inset,
-		0 41.8px 33.4px rgba(0, 0, 0, 0.086) inset,
-		0 100px 80px rgba(0, 0, 0, 0.12) inset;
+.icon-button:not([disabled]):active {
+	box-shadow: var(--shadow-black-1) inset, var(--shadow-black-2) inset,
+		var(--shadow-black-3) inset, var(--shadow-black-4) inset,
+		var(--shadow-black-5) inset, var(--shadow-black-6) inset;
 }
 
-.icon-button.disabled {
+.icon-button[disabled] {
 	cursor: context-menu;
-	background-color: rgba(189, 185, 185, 0.9);
+	background-color: var(--grey-faded-color);
 }
