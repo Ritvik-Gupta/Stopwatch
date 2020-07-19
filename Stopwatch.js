@@ -1,7 +1,9 @@
 const formatToString = (num, len) => {
 	let str = num.toString();
-	if (len - str.length > 0) str;
-	return new Array(len - str.length).fill(0).join('') + str;
+	if (len <= str.length) {
+		return str.substr(0, len);
+	}
+	return '0'.repeat(len - str.length) + str;
 };
 
 const Stopwatch = (() => {
