@@ -1,13 +1,20 @@
 const container = document.querySelector('.container');
-const boxNumbers = document.querySelectorAll('#stopwatch .box.number');
-const playButton = document.querySelector('#buttons .icon-button.play');
-const pauseButton = document.querySelector('#buttons .icon-button.pause');
-const resetButton = document.querySelector('#buttons .icon-button.reset');
+const boxNumbers = document.querySelectorAll('.box.number');
+
+const playButton = document.querySelector('.icon-button.play');
+const pauseButton = document.querySelector('.icon-button.pause');
+const resetButton = document.querySelector('.icon-button.reset');
+
+const deleteButton = document.querySelector('.lap-button');
+const heading = document.querySelector('.header .heading');
+const content = document.querySelector('.content');
 
 const stopwatch = new Stopwatch();
 let intervalID = null;
+let lapCounter = 0;
 
 resetStopwatch();
+resetLaps();
 
 playButton.addEventListener('click', () => {
 	console.log('Clicked on Play Button');
@@ -26,6 +33,13 @@ pauseButton.addEventListener('click', () => {
 	playButton.removeAttribute('disabled');
 	pauseButton.setAttribute('disabled', 'true');
 	container.classList.remove('animate-gradient');
+
+	const para = document.createElement('p');
+	para.classList.add('item');
+	para.textContent = stopwatch.timeString();
+	content.appendChild(para);
+
+	heading.textContent = `Laps Recorded : ${++lapCounter}`;
 });
 
 resetButton.addEventListener('click', () => {
@@ -37,6 +51,8 @@ resetButton.addEventListener('click', () => {
 	pauseButton.removeAttribute('disabled');
 	container.classList.remove('animate-gradient');
 });
+
+deleteButton.addEventListener('click', resetLaps);
 
 function startStopwatch(num = 10) {
 	intervalID = setInterval(() => {
@@ -53,11 +69,15 @@ function stopStopwatch() {
 function resetStopwatch() {
 	stopwatch.reset();
 	setBoxNumbers();
-	pauseButton.classList.add('disabled');
+	pauseButton.setAttribute('disabled', 'true');
+}
+
+function resetLaps() {
+	content.innerHTML = '';
+	heading.textContent = 'No Laps Recorded';
+	lapCounter = 0;
 }
 
 function setBoxNumbers() {
-	boxNumbers.forEach((box, index) => {
-		box.textContent = formatToString(stopwatch.time[index], 2);
-	});
+	stopwatch.time().forEach((unit, index) => (boxNumbers[index].textContent = unit));
 }

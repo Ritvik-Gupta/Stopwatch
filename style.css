@@ -28,7 +28,7 @@ body {
 .container {
 	width: 100%;
 	height: 100%;
-	padding: 100px;
+	padding: 10px 60px;
 	background: var(--background-gradient);
 	background-size: 400% 400%;
 	background-position: 0% 50%;
@@ -46,20 +46,8 @@ body {
 	animation-play-state: running;
 }
 
-@keyframes moving-gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 #stopwatch {
-	margin: 100px auto;
+	margin: 70px auto;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -69,7 +57,7 @@ body {
 }
 
 #buttons {
-	margin: 100px auto;
+	margin: 30px auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -84,6 +72,7 @@ body {
 	border-radius: 50%;
 	color: white;
 	transition: all 0.3s ease-in-out;
+
 	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
 		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6);
 }
@@ -95,10 +84,11 @@ body {
 
 .icon-button:not([disabled]):hover {
 	background-color: var(--lightgreen-color);
+	transform: translateY(-5px);
+
 	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
 		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6),
 		var(--shadow-green);
-	transform: translateY(-5px);
 }
 
 .icon-button:not([disabled]):active {
@@ -110,4 +100,116 @@ body {
 .icon-button[disabled] {
 	cursor: context-menu;
 	background-color: var(--grey-faded-color);
+}
+
+#laps {
+	height: 40%;
+	margin: 70px auto;
+	background: linear-gradient(to right, #ffefba, #ffffff);
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6);
+
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-areas:
+		'b b e c c'
+		'b b e c c'
+		'h h h c c'
+		'h h h c c';
+}
+
+.header {
+	grid-area: h;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header .heading {
+	font-size: 30px;
+	font-family: 'Trebuchet MS';
+	background: -webkit-linear-gradient(#0f0c29, #302b63, #24243e);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.lap-buttons {
+	grid-area: b;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	grid-area: c;
+	overflow-y: scroll;
+	overflow-x: none;
+	text-align: center;
+
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6);
+}
+
+.content .item {
+	font-size: 20px;
+	font-weight: 600;
+	font-family: monospace;
+	background: -webkit-linear-gradient(#fdc830, #f37335);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	animation-name: slide-right;
+	animation-duration: 0.5s;
+	animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+	padding: 10px auto;
+}
+
+.lap-button {
+	outline: none;
+	cursor: pointer;
+	padding: 15px;
+	margin: 0px 15px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	color: white;
+	background-color: var(--lightblue-color);
+	transition: all 0.3s ease-in-out;
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6);
+}
+
+.lap-button:hover {
+	background-color: var(--lightgreen-color);
+
+	box-shadow: var(--shadow-black-1), var(--shadow-black-2), var(--shadow-black-3),
+		var(--shadow-black-4), var(--shadow-black-5), var(--shadow-black-6),
+		var(--shadow-green);
+}
+
+.lap-button:active {
+	box-shadow: var(--shadow-black-1) inset, var(--shadow-black-2) inset,
+		var(--shadow-black-3) inset, var(--shadow-black-4) inset,
+		var(--shadow-black-5) inset, var(--shadow-black-6) inset;
+}
+
+@keyframes moving-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes slide-right {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
 }

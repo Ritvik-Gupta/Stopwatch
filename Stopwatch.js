@@ -27,8 +27,22 @@ const Stopwatch = (() => {
 			seconds = seconds % 60;
 		}
 
-		get time() {
-			return [minutes, seconds, millis];
+		time(n = 2) {
+			return [
+				formatToString(minutes, n),
+				formatToString(seconds, n),
+				formatToString(millis, n),
+			];
+		}
+
+		timeString(n = 2) {
+			return (
+				formatToString(minutes, n) +
+				' : ' +
+				formatToString(seconds, n) +
+				' : ' +
+				formatToString(millis, n)
+			);
 		}
 	}
 
