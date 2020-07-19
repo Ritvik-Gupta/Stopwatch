@@ -1,0 +1,83 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	padding: 100px;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	background-position: 0% 50%;
+	animation-name: moving-gradient;
+	animation-duration: 15s;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+	animation-play-state: paused;
+}
+
+.animate-gradient {
+	animation-play-state: running;
+}
+
+@keyframes moving-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#stopwatch {
+	margin: 100px auto;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	color: whitesmoke;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+#buttons {
+	margin: 100px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: large;
+}
+
+.icon-button {
+	outline: none;
+	padding: 15px;
+	margin: 0px 15px;
+	border: 1px solid transparent;
+	border-style: outset;
+	border-radius: 50%;
+	box-shadow: 2px 1px 2px 3px rgba(0, 0, 0, 0.25);
+	color: white;
+	cursor: pointer;
+	background-color: rgb(12, 170, 157);
+	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.icon-button:hover {
+	background-color: rgb(11, 199, 183);
+	color: whitesmoke;
+}
+
+.icon-button:active {
+	box-shadow: 2px 1px 2px 3px rgba(0, 0, 0, 0.25) inset;
+	border-style: inset;
+}
